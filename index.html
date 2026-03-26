@@ -3,58 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SoundCloud Desktop Fork</title>
+    <title>SoundCloud Desktop Fork by Teiwazik</title>
     <meta
       name="description"
-      content="Неофициальный форк SoundCloud Desktop для Windows, Linux и macOS: HQ/GO+, быстрый нативный клиент на Tauri, улучшенные рекомендации, fullscreen lyrics и автообновления."
+      content="Форк SoundCloud Desktop: расширенные рекомендации SoundWave, import из Spotify/YT Music, улучшенный fullscreen UX и стабильный updater."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="bg"></div>
-    <main class="container">
-      <header class="hero">
-        <p class="badge">TEIWAZIK FORK</p>
+    <main class="wrap">
+      <header class="hero card">
+        <p class="eyebrow">TEIWAZIK · FORK EDITION</p>
         <h1>SoundCloud Desktop Fork</h1>
-        <p class="subtitle">
-          Нативный клиент SoundCloud на Tauri: без рекламы, с улучшенным плеером, рекомендациями и
-          стабильными автообновлениями.
+        <p class="lead">
+          Нативный SoundCloud-клиент на Tauri с улучшениями, которых нет в upstream: SoundWave
+          recommendations, импорт из Spotify/YT Music и доработанный UX fullscreen-плеера.
         </p>
-
         <div class="actions">
-          <a class="btn btn-primary" href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">
-            Скачать последнюю версию
+          <a class="btn primary" href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">
+            Скачать релиз
           </a>
-          <a class="btn" href="https://github.com/Teiwazik/SoundCloud-DesktopFork">
-            Репозиторий форка
-          </a>
-          <a class="btn" href="https://github.com/zxcloli666/SoundCloud-Desktop">
-            Основной репозиторий
-          </a>
+          <a class="btn" href="https://github.com/Teiwazik/SoundCloud-DesktopFork">Репозиторий форка</a>
+          <a class="btn" href="https://github.com/zxcloli666/SoundCloud-Desktop">Основной репозиторий</a>
         </div>
       </header>
 
       <section class="card">
-        <h2>Что улучшено в форке</h2>
-        <ul>
-          <li>GO+/HQ streaming и индикация качества потока в интерфейсе.</li>
-          <li>Переработанные рекомендации: Qdrant 96D, hybrid ranking, региональные тренды, LLM rerank.</li>
-          <li>Оптимизация fullscreen/lyrics/visualizer и более плавная работа прогресса.</li>
-          <li>Фиксы аудио-логики (включая crossfade и поведение громкости).</li>
-          <li>Стабильный release-пайплайн и обновлённая подпись updater-артефактов.</li>
-        </ul>
+        <h2>Fork-only улучшения (vs upstream)</h2>
+        <div class="grid cols-2">
+          <article>
+            <h3>SoundWave recommendations</h3>
+            <p>Qdrant 96D + hybrid ranking + regional trends + LLM rerank в discovery-потоке.</p>
+          </article>
+          <article>
+            <h3>Import экосистема</h3>
+            <p>Импорт треков/плейлистов из Spotify и YouTube Music прямо в desktop-клиент.</p>
+          </article>
+          <article>
+            <h3>Playback UX</h3>
+            <p>HQ/LQ badge, фиксы crossfade, сглаженный прогресс-таймлайн и fullscreen-переходы.</p>
+          </article>
+          <article>
+            <h3>Release reliability</h3>
+            <p>Стабилизирован updater pipeline: подписи, latest.json, корректная ветка версий 6.x.</p>
+          </article>
+        </div>
       </section>
 
-      <section class="grid">
+      <section class="card">
+        <h2>Скриншоты</h2>
+        <div class="grid cols-2 screenshots">
+          <img
+            src="https://github.com/user-attachments/assets/66d6abb5-7ecd-493c-a0a1-19e7b22d2da5"
+            alt="Главный экран приложения"
+            loading="lazy"
+          />
+          <img
+            src="https://github.com/user-attachments/assets/d590bfe7-487b-4578-90fd-2c21646e262a"
+            alt="Экран лайкнутых треков"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="grid cols-2">
         <article class="card">
-          <h3>Платформы</h3>
-          <p>Windows (exe/msi), Linux (deb/rpm/AppImage/flatpak), macOS (Intel/Apple Silicon).</p>
+          <h2>Roadmap</h2>
+          <ul>
+            <li>Дальнейшая оптимизация lyrics/fullscreen на слабых системах.</li>
+            <li>Улучшение объяснимости рекомендаций и пресетов SoundWave.</li>
+            <li>Больше платформенных доработок в автообновлениях.</li>
+          </ul>
         </article>
         <article class="card">
-          <h3>Технологии</h3>
-          <p>Tauri v2, Rust, React 19, Zustand, TanStack Query, NestJS backend.</p>
+          <h2>FAQ</h2>
+          <p><strong>Это отдельный клиент?</strong> Да, это форк со своим release-циклом.</p>
+          <p><strong>Совместим с upstream?</strong> Да, но в форке есть отдельные фичи и UI-правки.</p>
+          <p><strong>Где релизы?</strong> На странице Releases форка.</p>
         </article>
       </section>
+
+      <footer class="foot">
+        <a href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">Релизы</a>
+        <a href="https://github.com/Teiwazik/SoundCloud-DesktopFork">Форк</a>
+        <a href="https://github.com/zxcloli666/SoundCloud-Desktop">Upstream</a>
+      </footer>
     </main>
   </body>
 </html>
