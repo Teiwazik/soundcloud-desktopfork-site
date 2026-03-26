@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundCloud Desktop Fork</title>
+    <meta
+      name="description"
+      content="Неофициальный форк SoundCloud Desktop для Windows, Linux и macOS: HQ/GO+, быстрый нативный клиент на Tauri, улучшенные рекомендации, fullscreen lyrics и автообновления."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <main class="container">
+      <header class="hero">
+        <p class="badge">TEIWAZIK FORK</p>
+        <h1>SoundCloud Desktop Fork</h1>
+        <p class="subtitle">
+          Нативный клиент SoundCloud на Tauri: без рекламы, с улучшенным плеером, рекомендациями и
+          стабильными автообновлениями.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">
+            Скачать последнюю версию
+          </a>
+          <a class="btn" href="https://github.com/Teiwazik/SoundCloud-DesktopFork">
+            Репозиторий форка
+          </a>
+          <a class="btn" href="https://github.com/zxcloli666/SoundCloud-Desktop">
+            Основной репозиторий
+          </a>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>Что улучшено в форке</h2>
+        <ul>
+          <li>GO+/HQ streaming и индикация качества потока в интерфейсе.</li>
+          <li>Переработанные рекомендации: Qdrant 96D, hybrid ranking, региональные тренды, LLM rerank.</li>
+          <li>Оптимизация fullscreen/lyrics/visualizer и более плавная работа прогресса.</li>
+          <li>Фиксы аудио-логики (включая crossfade и поведение громкости).</li>
+          <li>Стабильный release-пайплайн и обновлённая подпись updater-артефактов.</li>
+        </ul>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h3>Платформы</h3>
+          <p>Windows (exe/msi), Linux (deb/rpm/AppImage/flatpak), macOS (Intel/Apple Silicon).</p>
+        </article>
+        <article class="card">
+          <h3>Технологии</h3>
+          <p>Tauri v2, Rust, React 19, Zustand, TanStack Query, NestJS backend.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
