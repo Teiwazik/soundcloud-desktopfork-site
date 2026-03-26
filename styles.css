@@ -1,0 +1,139 @@
+:root {
+  --bg: #070a12;
+  --panel: #0f1524cc;
+  --text: #e9edf7;
+  --muted: #afbad6;
+  --border: #ffffff1f;
+  --accent: #ff5f1f;
+  --accent-2: #ff9966;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 500px at 10% -5%, #ff5f1f4f, transparent 60%),
+    radial-gradient(800px 550px at 100% 0%, #3a87ff42, transparent 55%),
+    linear-gradient(180deg, #0a1020 0%, #070a12 100%);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+.hero {
+  text-align: center;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+}
+
+.badge {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 12px 0 10px;
+  font-size: clamp(28px, 6vw, 52px);
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: clamp(15px, 2.5vw, 19px);
+}
+
+.actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: 11px 18px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: #ffffff40;
+  background: #ffffff12;
+}
+
+.btn-primary {
+  border-color: #0000;
+  color: #fff;
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+}
+
+.card {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+}
+
+.card h2,
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p,
+.card li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
