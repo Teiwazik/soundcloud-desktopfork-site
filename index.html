@@ -3,25 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SoundCloud Desktop Fork by Teiwazik</title>
+    <title>SoundCloud Desktop Fork — Dark Edition</title>
     <meta
       name="description"
-      content="Форк SoundCloud Desktop: расширенные рекомендации SoundWave, import из Spotify/YT Music, улучшенный fullscreen UX и стабильный updater."
+      content="Тёмный лендинг SoundCloud Desktop Fork: fork-only улучшения, SoundWave рекомендации, визуализатор, импорт из Spotify/YouTube Music и стабильный updater."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="bg"></div>
-    <main class="wrap">
-      <header class="hero card">
-        <p class="eyebrow">TEIWAZIK · FORK EDITION</p>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="mouse-glow" id="mouse-glow" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <main class="page">
+      <header class="hero card reveal">
+        <p class="kicker">TEIWAZIK · FORK · NIGHT BUILD</p>
         <h1>SoundCloud Desktop Fork</h1>
-        <p class="lead">
-          Нативный SoundCloud-клиент на Tauri с улучшениями, которых нет в upstream: SoundWave
-          recommendations, импорт из Spotify/YT Music и доработанный UX fullscreen-плеера.
+        <p class="subtitle">
+          Более тёмный, более глубокий и более мощный форк: со своим roadmap, фичами и скоростью.
         </p>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">
             Скачать релиз
           </a>
           <a class="btn" href="https://github.com/Teiwazik/SoundCloud-DesktopFork">Репозиторий форка</a>
@@ -29,66 +31,99 @@
         </div>
       </header>
 
-      <section class="card">
-        <h2>Fork-only улучшения (vs upstream)</h2>
-        <div class="grid cols-2">
-          <article>
-            <h3>SoundWave recommendations</h3>
-            <p>Qdrant 96D + hybrid ranking + regional trends + LLM rerank в discovery-потоке.</p>
+      <section class="card reveal">
+        <h2>Fork-only улучшения</h2>
+        <p class="section-note">Список ниже — только отличия от upstream.</p>
+        <div class="feature-grid">
+          <article class="feature glow-card tilt">
+            <h3>SoundWave Recommendations</h3>
+            <p>Qdrant 96D + hybrid ranking + regional trends + LLM rerank для более умного discovery.</p>
           </article>
-          <article>
-            <h3>Import экосистема</h3>
-            <p>Импорт треков/плейлистов из Spotify и YouTube Music прямо в desktop-клиент.</p>
+          <article class="feature glow-card tilt">
+            <h3>Импорт экосистемы</h3>
+            <p>Импорт плейлистов и треков из Spotify и YouTube Music прямо в desktop-приложение.</p>
           </article>
-          <article>
+          <article class="feature glow-card tilt">
+            <h3>Визуализатор</h3>
+            <p>Нативный производительный visualizer и отдельные настройки fullscreen-режима.</p>
+          </article>
+          <article class="feature glow-card tilt">
             <h3>Playback UX</h3>
-            <p>HQ/LQ badge, фиксы crossfade, сглаженный прогресс-таймлайн и fullscreen-переходы.</p>
+            <p>HQ/LQ badge, фиксы crossfade, более плавный прогресс и переходы обложек.</p>
           </article>
-          <article>
-            <h3>Release reliability</h3>
-            <p>Стабилизирован updater pipeline: подписи, latest.json, корректная ветка версий 6.x.</p>
+          <article class="feature glow-card tilt">
+            <h3>Updater Reliability</h3>
+            <p>Стабилизированный updater-пайплайн: подписи, latest.json, корректная ветка версий 6.x.</p>
+          </article>
+          <article class="feature glow-card tilt">
+            <h3>Локализация</h3>
+            <p>Расширенная локализация, включая украинский язык в desktop-части форка.</p>
           </article>
         </div>
       </section>
 
-      <section class="card">
+      <section class="split reveal">
+        <article class="card panel glow-card">
+          <h2>Глубже о форке</h2>
+          <ul class="list">
+            <li>Собственный цикл релизов и быстрая реакция на UX/производительность.</li>
+            <li>Оптимизация fullscreen + lyrics под реальный desktop WebView runtime.</li>
+            <li>Приоритет стабильности playback и обновлений без поломки подписи.</li>
+            <li>Ветка улучшений, где акцент на музыку, а не только на инфраструктуру.</li>
+          </ul>
+        </article>
+        <article class="card panel glow-card">
+          <h2>Технологический стек</h2>
+          <div class="tags">
+            <span>Tauri v2</span><span>Rust</span><span>React 19</span><span>Zustand</span>
+            <span>TanStack Query</span><span>NestJS</span><span>Qdrant</span><span>LLM Rerank</span>
+          </div>
+          <p class="muted">Windows · Linux · macOS, релизы через GitHub Actions + Pages.</p>
+        </article>
+      </section>
+
+      <section class="card reveal">
         <h2>Скриншоты</h2>
-        <div class="grid cols-2 screenshots">
+        <div class="shots">
           <img
             src="https://github.com/user-attachments/assets/66d6abb5-7ecd-493c-a0a1-19e7b22d2da5"
-            alt="Главный экран приложения"
+            alt="Главный экран"
             loading="lazy"
+            class="tilt"
           />
           <img
             src="https://github.com/user-attachments/assets/d590bfe7-487b-4578-90fd-2c21646e262a"
-            alt="Экран лайкнутых треков"
+            alt="Лайкнутые треки"
             loading="lazy"
+            class="tilt"
           />
         </div>
       </section>
 
-      <section class="grid cols-2">
-        <article class="card">
+      <section class="split reveal">
+        <article class="card panel glow-card">
           <h2>Roadmap</h2>
-          <ul>
-            <li>Дальнейшая оптимизация lyrics/fullscreen на слабых системах.</li>
-            <li>Улучшение объяснимости рекомендаций и пресетов SoundWave.</li>
-            <li>Больше платформенных доработок в автообновлениях.</li>
+          <ul class="list">
+            <li>Ещё глубже оптимизировать рендер в тяжёлых fullscreen-сценах.</li>
+            <li>Прозрачнее объяснять причину рекомендаций в SoundWave.</li>
+            <li>Добавить расширенные пресеты visualizer и пользовательские профили.</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card panel glow-card">
           <h2>FAQ</h2>
-          <p><strong>Это отдельный клиент?</strong> Да, это форк со своим release-циклом.</p>
-          <p><strong>Совместим с upstream?</strong> Да, но в форке есть отдельные фичи и UI-правки.</p>
-          <p><strong>Где релизы?</strong> На странице Releases форка.</p>
+          <p><strong>Это отдельный клиент?</strong> Да, с собственным release-циклом.</p>
+          <p><strong>Совместим с upstream?</strong> Да, но содержит отдельные fork-only фичи.</p>
+          <p><strong>Где скачать?</strong> Через страницу релизов форка.</p>
         </article>
       </section>
 
-      <footer class="foot">
+      <footer class="footer reveal">
         <a href="https://github.com/Teiwazik/SoundCloud-DesktopFork/releases/latest">Релизы</a>
-        <a href="https://github.com/Teiwazik/SoundCloud-DesktopFork">Форк</a>
+        <a href="https://teiwazik.github.io/soundcloud-desktopfork-site/">Сайт</a>
         <a href="https://github.com/zxcloli666/SoundCloud-Desktop">Upstream</a>
       </footer>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>
