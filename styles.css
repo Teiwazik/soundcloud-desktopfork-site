@@ -328,8 +328,10 @@ h3 {
   position: fixed;
   inset: 0;
   z-index: 30;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 24px;
   background: #050812e8;
   backdrop-filter: blur(8px);
@@ -343,10 +345,22 @@ h3 {
   box-shadow: 0 24px 60px #000000a6;
 }
 
+.lightbox-meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
 .lightbox p {
   margin: 10px 0 0;
   color: #dbe4ff;
   font-size: 14px;
+}
+
+#shot-lightbox-index {
+  color: #a8b6da;
+  font-size: 13px;
 }
 
 .lightbox-close {
@@ -362,6 +376,29 @@ h3 {
   line-height: 1;
   cursor: pointer;
   background: #0b1226cf;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: 1px solid #ffffff3a;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  background: #0b1226d9;
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
 }
 
 .footer {
@@ -425,6 +462,20 @@ h3 {
 
   .sc-beamline {
     width: 156px;
+  }
+
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
   }
 
   .feature-grid,
