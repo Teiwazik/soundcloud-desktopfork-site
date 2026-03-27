@@ -117,8 +117,9 @@ body {
 
 .sc-icon {
   width: 92px;
-  height: auto;
+  height: 92px;
   border-radius: 14px;
+  object-fit: cover;
 }
 
 .sc-beamline {
@@ -316,6 +317,51 @@ h3 {
   border-radius: 16px;
   border: 1px solid #ffffff1f;
   box-shadow: 0 20px 50px #00000080;
+  cursor: zoom-in;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #050812e8;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox img {
+  max-width: min(1200px, 92vw);
+  max-height: 78vh;
+  border-radius: 14px;
+  border: 1px solid #ffffff30;
+  box-shadow: 0 24px 60px #000000a6;
+}
+
+.lightbox p {
+  margin: 10px 0 0;
+  color: #dbe4ff;
+  font-size: 14px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ffffff3a;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  background: #0b1226cf;
 }
 
 .footer {
