@@ -210,6 +210,22 @@ function setupShotLightbox() {
     if (e.key === 'ArrowLeft') showPrev();
     if (e.key === 'ArrowRight') showNext();
   });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const minSwipe = 50;
+
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) < minSwipe) return;
+    if (diff > 0) showPrev();
+    else showNext();
+  }, { passive: true });
 }
 
 setupMouseGlow();
