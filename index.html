@@ -8,6 +8,7 @@
       name="description"
       content="Тёмный лендинг SoundCloud Desktop Fork: fork-only улучшения, SoundWave рекомендации, визуализатор, импорт из Spotify/YouTube Music и стабильный updater."
     />
+    <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -19,24 +20,7 @@
       <header class="hero card reveal">
         <div class="sc-icon-wrapper">
           <div class="sc-icon-spin">
-            <svg class="sc-icon" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="scg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#ff9a3b" />
-                  <stop offset="100%" stop-color="#ff4f3d" />
-                </linearGradient>
-              </defs>
-              <rect x="0" y="0" width="96" height="96" rx="14" fill="url(#scg)" />
-              <g fill="#ffe7db">
-                <path d="M53 34c8 0 14 6 15 13a11 11 0 1 1 2 22H51c-1 0-2-1-2-2V47c0-7 2-13 4-13z" />
-                <rect x="16" y="52" width="4" height="17" rx="2" />
-                <rect x="22" y="50" width="4" height="19" rx="2" />
-                <rect x="28" y="48" width="4" height="21" rx="2" />
-                <rect x="34" y="46" width="4" height="23" rx="2" />
-                <rect x="40" y="43" width="4" height="26" rx="2" />
-                <rect x="46" y="40" width="4" height="29" rx="2" />
-              </g>
-            </svg>
+            <img class="sc-icon" src="./site-icon.png" alt="SoundCloud icon" />
           </div>
           <div class="sc-beamline" aria-hidden="true">
             <span class="beam b1"></span>
@@ -197,6 +181,12 @@
         <a href="https://github.com/zxcloli666/SoundCloud-Desktop">Upstream</a>
       </footer>
     </main>
+
+    <div class="lightbox" id="shot-lightbox" hidden>
+      <button class="lightbox-close" id="shot-lightbox-close" aria-label="Закрыть просмотр">x</button>
+      <img id="shot-lightbox-img" alt="Увеличенный скриншот" />
+      <p id="shot-lightbox-caption"></p>
+    </div>
 
     <script src="./script.js"></script>
   </body>
