@@ -91,7 +91,7 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 240px;
   height: 220px;
   margin: 0 auto 6px;
@@ -135,7 +135,7 @@ body {
   transform: translateX(-50%);
   width: 380px;
   height: 180px;
-  z-index: 1;
+  z-index: 5;
   pointer-events: none;
   animation: godrays-sway 12s ease-in-out infinite;
 }
