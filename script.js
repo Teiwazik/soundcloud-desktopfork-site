@@ -128,108 +128,6 @@ function setupCanvas() {
   render();
 }
 
-function setupIconJump() {
-  const iconSpin = document.querySelector('.sc-icon-spin');
-  if (!iconSpin) return;
-  let jumped = false;
-
-  const jump = () => {
-    if (jumped) return;
-    jumped = true;
-    iconSpin.classList.add('jump');
-  };
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          setTimeout(jump, 600);
-          io.disconnect();
-        }
-      }
-    },
-    { threshold: 0.3 },
-  );
-
-  io.observe(iconSpin);
-}
-
-function setupScVisualizer() {
-  const canvas = document.getElementById('sc-visualizer');
-  if (!(canvas instanceof HTMLCanvasElement)) return;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
-
-  const W = canvas.width;
-  const H = canvas.height;
-  const bars = 28;
-  const barW = W / bars;
-  const phases = [];
-  const speeds = [];
-
-  for (let i = 0; i < bars; i++) {
-    phases.push(Math.random() * Math.PI * 2);
-    speeds.push(0.035 + Math.random() * 0.06);
-  }
-
-  let t = 0;
-
-  const palette = {
-    r: 255, g: 140, b: 60,
-    r2: 255, g: 80, b: 100,
-    r3: 200, g: 120, b: 255,
-  };
-
-  const render = () => {
-    ctx.clearRect(0, 0, W, H);
-    t += 1;
-
-    for (let i = 0; i < bars; i++) {
-      const x = i * barW + 1;
-      const bw = barW - 2;
-
-      const base = Math.sin(t * speeds[i] + phases[i]) * 0.35 + 0.65;
-      const detail1 = Math.sin(t * 0.07 + i * 0.5) * 0.2;
-      const detail2 = Math.sin(t * 0.13 + i * 0.8) * 0.1;
-      const h = Math.max(3, (base + detail1 + detail2) * H * 0.72);
-
-      const phase = (i / bars) + Math.sin(t * 0.018) * 0.5;
-
-      const r = Math.round(
-        palette.r + (palette.r2 - palette.r) * phase +
-        (palette.r3 - palette.r2) * Math.sin(phase * Math.PI + t * 0.04) * 0.5
-      );
-      const g = Math.round(
-        palette.g + (palette.g2 - palette.g) * phase +
-        (palette.g3 - palette.g) * Math.cos(phase * Math.PI + t * 0.05) * 0.5
-      );
-      const b = Math.round(
-        palette.b + (palette.b2 - palette.b) * phase +
-        (palette.b3 - palette.b) * Math.sin(phase * Math.PI * 1.3 + t * 0.03) * 0.5
-      );
-
-      const grad = ctx.createLinearGradient(0, H, 0, H - h);
-      grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.92)`);
-      grad.addColorStop(0.5, `rgba(${Math.round(r * 0.7)}, ${Math.round(g * 0.5)}, ${Math.round(b * 0.4)}, 0.7)`);
-      grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.roundRect(x, H - h, bw, h, [3, 3, 0, 0]);
-      ctx.fill();
-
-      ctx.shadowBlur = 6;
-      ctx.shadowColor = `rgba(${r}, ${g}, ${b}, 0.55)`;
-      ctx.fillRect(x, H - h, bw, 2);
-      ctx.shadowBlur = 0;
-    }
-
-    requestAnimationFrame(render);
-  };
-
-  render();
-}
-
 function setupShotLightbox() {
   const lightbox = document.getElementById('shot-lightbox');
   const lightboxImg = document.getElementById('shot-lightbox-img');
@@ -318,6 +216,4 @@ setupMouseGlow();
 setupReveal();
 setupTilt();
 setupCanvas();
-setupIconJump();
-setupScVisualizer();
 setupShotLightbox();
