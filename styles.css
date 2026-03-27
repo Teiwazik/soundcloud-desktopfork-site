@@ -337,12 +337,23 @@ h3 {
   backdrop-filter: blur(8px);
 }
 
+.lightbox-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
 .lightbox img {
   max-width: min(1200px, 92vw);
   max-height: 78vh;
   border-radius: 14px;
   border: 1px solid #ffffff30;
   box-shadow: 0 24px 60px #000000a6;
+}
+
+.lightbox img.is-animating {
+  will-change: transform, opacity;
 }
 
 .lightbox-meta {
@@ -379,9 +390,6 @@ h3 {
 }
 
 .lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 46px;
   height: 46px;
   border: 1px solid #ffffff3a;
@@ -391,14 +399,15 @@ h3 {
   line-height: 1;
   cursor: pointer;
   background: #0b1226d9;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.lightbox-prev {
-  left: 18px;
-}
-
-.lightbox-next {
-  right: 18px;
+.lightbox-nav:hover {
+  transform: scale(1.06);
+  background: #14214cd9;
+  border-color: #ffffff66;
 }
 
 .footer {
@@ -470,12 +479,8 @@ h3 {
     font-size: 26px;
   }
 
-  .lightbox-prev {
-    left: 10px;
-  }
-
-  .lightbox-next {
-    right: 10px;
+  .lightbox-stage {
+    gap: 8px;
   }
 
   .feature-grid,
