@@ -132,9 +132,32 @@ function setupShotLightbox() {
   const lightbox = document.getElementById('shot-lightbox');
   const lightboxImg = document.getElementById('shot-lightbox-img');
   const lightboxCaption = document.getElementById('shot-lightbox-caption');
+  const lightboxIndex = document.getElementById('shot-lightbox-index');
   const closeBtn = document.getElementById('shot-lightbox-close');
+  const prevBtn = document.getElementById('shot-lightbox-prev');
+  const nextBtn = document.getElementById('shot-lightbox-next');
   const shotImages = Array.from(document.querySelectorAll('.shots img'));
-  if (!lightbox || !lightboxImg || !lightboxCaption || !closeBtn || shotImages.length === 0) return;
+  if (
+    !lightbox ||
+    !lightboxImg ||
+    !lightboxCaption ||
+    !lightboxIndex ||
+    !closeBtn ||
+    !prevBtn ||
+    !nextBtn ||
+    shotImages.length === 0
+  ) return;
+
+  let currentIndex = 0;
+
+  const render = (index) => {
+    const total = shotImages.length;
+    currentIndex = (index + total) % total;
+    const current = shotImages[currentIndex];
+    lightboxImg.src = current.src;
+    lightboxCaption.textContent = current.alt || '';
+    lightboxIndex.textContent = `${currentIndex + 1} / ${total}`;
+  };
 
   const close = () => {
     lightbox.hidden = true;
@@ -142,23 +165,30 @@ function setupShotLightbox() {
     document.body.style.overflow = '';
   };
 
-  const open = (img) => {
-    lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.alt || '';
+  const open = (index) => {
+    render(index);
     lightbox.hidden = false;
     document.body.style.overflow = 'hidden';
   };
 
-  for (const img of shotImages) {
-    img.addEventListener('click', () => open(img));
+  const showPrev = () => render(currentIndex - 1);
+  const showNext = () => render(currentIndex + 1);
+
+  for (const [index, img] of shotImages.entries()) {
+    img.addEventListener('click', () => open(index));
   }
 
   closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) close();
   });
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !lightbox.hidden) close();
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
   });
 }
 
