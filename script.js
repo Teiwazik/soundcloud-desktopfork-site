@@ -128,6 +128,32 @@ function setupCanvas() {
   render();
 }
 
+function setupIconJump() {
+  const iconSpin = document.querySelector('.sc-icon-spin');
+  if (!iconSpin) return;
+  let jumped = false;
+
+  const jump = () => {
+    if (jumped) return;
+    jumped = true;
+    iconSpin.classList.add('jump');
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          setTimeout(jump, 600);
+          io.disconnect();
+        }
+      }
+    },
+    { threshold: 0.3 },
+  );
+
+  io.observe(iconSpin);
+}
+
 function setupScVisualizer() {
   const canvas = document.getElementById('sc-visualizer');
   if (!(canvas instanceof HTMLCanvasElement)) return;
@@ -292,5 +318,6 @@ setupMouseGlow();
 setupReveal();
 setupTilt();
 setupCanvas();
+setupIconJump();
 setupScVisualizer();
 setupShotLightbox();
