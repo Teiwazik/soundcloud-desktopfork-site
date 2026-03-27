@@ -128,7 +128,42 @@ function setupCanvas() {
   render();
 }
 
+function setupShotLightbox() {
+  const lightbox = document.getElementById('shot-lightbox');
+  const lightboxImg = document.getElementById('shot-lightbox-img');
+  const lightboxCaption = document.getElementById('shot-lightbox-caption');
+  const closeBtn = document.getElementById('shot-lightbox-close');
+  const shotImages = Array.from(document.querySelectorAll('.shots img'));
+  if (!lightbox || !lightboxImg || !lightboxCaption || !closeBtn || shotImages.length === 0) return;
+
+  const close = () => {
+    lightbox.hidden = true;
+    lightboxImg.removeAttribute('src');
+    document.body.style.overflow = '';
+  };
+
+  const open = (img) => {
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.alt || '';
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  };
+
+  for (const img of shotImages) {
+    img.addEventListener('click', () => open(img));
+  }
+
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.hidden) close();
+  });
+}
+
 setupMouseGlow();
 setupReveal();
 setupTilt();
 setupCanvas();
+setupShotLightbox();
