@@ -85,6 +85,9 @@ body {
     radial-gradient(700px 300px at 20% 0%, #4b8bff26 0%, transparent 65%),
     radial-gradient(700px 320px at 90% 0%, #ff5f1f2c 0%, transparent 66%),
     linear-gradient(165deg, #111b35d6 0%, #0c1428f0 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sc-icon-wrapper {
