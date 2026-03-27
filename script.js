@@ -150,13 +150,27 @@ function setupShotLightbox() {
 
   let currentIndex = 0;
 
-  const render = (index) => {
+  const animateImage = (direction) => {
+    lightboxImg.classList.add('is-animating');
+    const fromX = direction > 0 ? 48 : -48;
+    lightboxImg.animate(
+      [
+        { opacity: 0.35, transform: `translateX(${fromX}px) scale(0.985)` },
+        { opacity: 1, transform: 'translateX(0) scale(1)' },
+      ],
+      { duration: 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+    );
+    window.setTimeout(() => lightboxImg.classList.remove('is-animating'), 320);
+  };
+
+  const render = (index, direction = 0) => {
     const total = shotImages.length;
     currentIndex = (index + total) % total;
     const current = shotImages[currentIndex];
     lightboxImg.src = current.src;
     lightboxCaption.textContent = current.alt || '';
     lightboxIndex.textContent = `${currentIndex + 1} / ${total}`;
+    if (direction !== 0) animateImage(direction);
   };
 
   const close = () => {
@@ -171,16 +185,22 @@ function setupShotLightbox() {
     document.body.style.overflow = 'hidden';
   };
 
-  const showPrev = () => render(currentIndex - 1);
-  const showNext = () => render(currentIndex + 1);
+  const showPrev = () => render(currentIndex - 1, -1);
+  const showNext = () => render(currentIndex + 1, 1);
 
   for (const [index, img] of shotImages.entries()) {
     img.addEventListener('click', () => open(index));
   }
 
   closeBtn.addEventListener('click', close);
-  prevBtn.addEventListener('click', showPrev);
-  nextBtn.addEventListener('click', showNext);
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPrev();
+  });
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNext();
+  });
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) close();
   });
