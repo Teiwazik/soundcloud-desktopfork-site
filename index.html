@@ -144,13 +144,13 @@
           />
           <img
             src="https://raw.githubusercontent.com/Teiwazik/SoundCloud-DesktopFork/main/assets/screenshots/cover-centered-comments.png"
-            alt="Центрированная обложка с комментариями"
+            alt="Discord Activity text mode"
             loading="lazy"
             class="tilt"
           />
           <img
             src="https://raw.githubusercontent.com/Teiwazik/SoundCloud-DesktopFork/main/assets/screenshots/discord-activity-text.png"
-            alt="Discord Activity text mode"
+            alt="Центрированная обложка с комментариями"
             loading="lazy"
             class="tilt"
           />
@@ -184,8 +184,13 @@
 
     <div class="lightbox" id="shot-lightbox" hidden>
       <button class="lightbox-close" id="shot-lightbox-close" aria-label="Закрыть просмотр">x</button>
+      <button class="lightbox-nav lightbox-prev" id="shot-lightbox-prev" aria-label="Предыдущий скрин">&#8249;</button>
       <img id="shot-lightbox-img" alt="Увеличенный скриншот" />
-      <p id="shot-lightbox-caption"></p>
+      <button class="lightbox-nav lightbox-next" id="shot-lightbox-next" aria-label="Следующий скрин">&#8250;</button>
+      <div class="lightbox-meta">
+        <p id="shot-lightbox-caption"></p>
+        <p id="shot-lightbox-index"></p>
+      </div>
     </div>
 
     <script src="./script.js"></script>
