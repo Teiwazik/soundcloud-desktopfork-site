@@ -184,9 +184,11 @@
 
     <div class="lightbox" id="shot-lightbox" hidden>
       <button class="lightbox-close" id="shot-lightbox-close" aria-label="Закрыть просмотр">x</button>
-      <button class="lightbox-nav lightbox-prev" id="shot-lightbox-prev" aria-label="Предыдущий скрин">&#8249;</button>
-      <img id="shot-lightbox-img" alt="Увеличенный скриншот" />
-      <button class="lightbox-nav lightbox-next" id="shot-lightbox-next" aria-label="Следующий скрин">&#8250;</button>
+      <div class="lightbox-stage">
+        <button class="lightbox-nav" id="shot-lightbox-prev" aria-label="Предыдущий скрин">&#8249;</button>
+        <img id="shot-lightbox-img" alt="Увеличенный скриншот" />
+        <button class="lightbox-nav" id="shot-lightbox-next" aria-label="Следующий скрин">&#8250;</button>
+      </div>
       <div class="lightbox-meta">
         <p id="shot-lightbox-caption"></p>
         <p id="shot-lightbox-index"></p>
